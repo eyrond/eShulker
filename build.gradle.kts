@@ -33,7 +33,6 @@ tasks {
     }
 
     shadowJar {
-        archiveFileName.set("apm-${version}.jar")
         dependencyFilter.apply {
             // Exclude all the dependencies that are already provided by Paper.
             exclude(dependency("org.jetbrains:annotations"))

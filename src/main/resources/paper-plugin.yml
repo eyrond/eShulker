@@ -1,0 +1,5 @@
+name: eShulker
+version: ${version}
+main: dev.eyrond.shulker.ShulkerPlugin
+description: Open shulkers right in your hands.
+api-version: 1.19

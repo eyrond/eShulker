@@ -1,0 +1,12 @@
+.gradle
+build/
+run/
+!**/src/main/**/build/
+!**/src/main/**/run/
+!**/src/test/**/build/
+!**/src/test/**/run/
+
+### IntelliJ IDEA ###
+.idea/
+!**/src/main/**/out/
+!**/src/test/**/out/

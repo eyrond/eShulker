@@ -16,6 +16,7 @@ repositories {
 
 dependencies {
     paperweight.paperDevBundle("1.19.4-R0.1-SNAPSHOT")
+    implementation("org.bstats", "bstats-bukkit", "3.0.2")
     implementation("dev.eyrond.paperkt", "core", "1.0.0")
 }
 
@@ -37,6 +38,7 @@ tasks {
             // Exclude all the dependencies that are already provided by Paper.
             exclude(dependency("org.jetbrains:annotations"))
         }
+        relocate("org.bstats", "dev.eyrond.shulker.bstats")
     }
 
     test {

@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "dev.eyrond.shulker"
-version = "1.0.1"
+version = "1.0.2"
 
 repositories {
     mavenCentral()
@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    paperweight.paperDevBundle("1.19.4-R0.1-SNAPSHOT")
+    paperweight.paperDevBundle("1.20-R0.1-SNAPSHOT")
     implementation("org.bstats", "bstats-bukkit", "3.0.2")
     implementation("dev.eyrond.paperkt", "core", "1.0.0")
 }

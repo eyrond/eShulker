@@ -17,7 +17,7 @@ repositories {
 dependencies {
     paperweight.paperDevBundle("1.20-R0.1-SNAPSHOT")
     implementation("org.bstats", "bstats-bukkit", "3.0.2")
-    implementation("dev.eyrond.paperkt", "core", "1.0.0")
+    implementation("dev.eyrond.paperkt", "core", "1.0.2")
 }
 
 kotlin {

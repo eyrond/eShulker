@@ -1,6 +1,7 @@
 package dev.eyrond.shulker
 
 import dev.eyrond.paperkt.listener.KotlinListener
+import dev.eyrond.paperkt.plugin.IKotlinPlugin
 import net.kyori.adventure.sound.Sound
 import net.minecraft.world.item.BlockItem
 import org.bukkit.Bukkit
@@ -20,6 +21,7 @@ import org.bukkit.inventory.meta.BlockStateMeta
 import org.bukkit.Sound as MinecraftSound
 
 class ShulkerInventory private constructor(
+    private val plugin: IKotlinPlugin,
     private val player: Player,
     private val itemStack: ItemStack
 ) : KotlinListener {
@@ -34,12 +36,13 @@ class ShulkerInventory private constructor(
     fun open(): Boolean = synchronized(this) {
         if (isOpen) return false
         playOpenSoundForPlayer()
-        register(ShulkerPlugin.get())
+        register(plugin)
         player.openInventory(inventory)
         isOpen = true
         return true
     }
 
+    @Suppress("unused")
     fun close(): Boolean = close(false)
 
     private fun close(isInventoryClosing: Boolean): Boolean = synchronized(this) {
@@ -69,12 +72,14 @@ class ShulkerInventory private constructor(
     }
 
     @EventHandler(ignoreCancelled = true)
+    @Suppress("unused")
     fun onInventoryClose(event: InventoryCloseEvent) {
         if (event.inventory.holder !== inventoryHolder) return
         close(true)
     }
 
     @EventHandler(ignoreCancelled = true)
+    @Suppress("unused")
     fun onInventoryClick(event: InventoryClickEvent) {
         val inventory = event.inventory
         if (inventory is PlayerInventory && inventory.holder == player) return
@@ -111,10 +116,10 @@ class ShulkerInventory private constructor(
 
     companion object {
 
-        fun open(player: Player, shulker: ItemStack): ShulkerInventory {
+        fun open(plugin: IKotlinPlugin, player: Player, shulker: ItemStack): ShulkerInventory {
             require(player.isOnline) { "Player must be online to open a shulker!" }
-            require(shulker.type.name.endsWith("SHULKER_BOX")) { "Only shulkers can be opened with ShulkerInventory!" }
-            return ShulkerInventory(player, shulker).also { it.open() }
+            require(shulker.isShulker()) { "Only shulkers can be opened with ShulkerInventory!" }
+            return ShulkerInventory(plugin, player, shulker).also { it.open() }
         }
     }
 }

@@ -1,5 +1,8 @@
 name: "eShulker"
 version: ${version}
 main: "dev.eyrond.shulker.ShulkerPlugin"
+authors: [ "eyrond" ]
+website: "https://eyrond.dev"
 description: "Open shulkers right in your hands."
-api-version: "1.19"
+load: "STARTUP"
+api-version: "1.20"

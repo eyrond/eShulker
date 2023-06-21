@@ -1,12 +1,12 @@
 plugins {
-    kotlin("jvm") version "1.8.21"
+    kotlin("jvm") version "1.8.22"
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("xyz.jpenilla.run-paper") version "2.1.0"
     id("io.papermc.paperweight.userdev") version "1.5.5"
 }
 
 group = "dev.eyrond.shulker"
-version = "1.0.3"
+version = "1.0.4"
 
 repositories {
     mavenCentral()
@@ -17,7 +17,7 @@ repositories {
 dependencies {
     paperweight.paperDevBundle("1.20-R0.1-SNAPSHOT")
     implementation("org.bstats", "bstats-bukkit", "3.0.2")
-    implementation("dev.eyrond.paperkt", "core", "1.0.2")
+    implementation("dev.eyrond.paperkt", "core", "1.0.4")
 }
 
 kotlin {
@@ -30,7 +30,7 @@ tasks {
     }
 
     runServer {
-        minecraftVersion("1.19.4")
+        minecraftVersion("1.20.1")
     }
 
     shadowJar {
